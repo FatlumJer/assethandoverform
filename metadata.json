@@ -1,0 +1,6 @@
+{
+  "name": "DocuCraft - Dynamic Asset Handover & PDF Form Generator",
+  "description": "Generate professional asset handover forms and dynamic PDF documents with real-time live preview, custom styling, digital signatures, and instant export.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

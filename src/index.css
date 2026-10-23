@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+}
+
+/* Custom scrollbars for clean editor views */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.4);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.7);
+}
+
+/* High-fidelity print styling */
+@media print {
+  html,
+  body {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Remove dark backgrounds from outer app shells */
+  body,
+  #root,
+  .min-h-screen,
+  #printable-pdf-container {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+  }
+
+  /* Hide app navigation, sidebars, tabs, action buttons, modals, toasts */
+  .no-print,
+  header,
+  nav,
+  aside,
+  button,
+  [role="dialog"] {
+    display: none !important;
+  }
+
+  /* Reset document container */
+  #printable-pdf-container {
+    display: block !important;
+    position: static !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  /* Completely remove CSS scale zoom so print is 100% full size */
+  #pdf-scale-wrapper,
+  .pdf-scale-wrapper {
+    transform: none !important;
+    -webkit-transform: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Format printable form to fill standard A4 paper cleanly with crisp black borders */
+  #printable-pdf-document {
+    display: block !important;
+    margin: 0 auto !important;
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+    padding: 0 !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    page-break-after: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Explicitly enforce grid borders, tables, and flex layout in print */
+  #printable-pdf-document * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    box-sizing: border-box !important;
+  }
+
+  #printable-pdf-document .flex {
+    display: flex !important;
+  }
+  #printable-pdf-document .flex-col {
+    flex-direction: column !important;
+  }
+  #printable-pdf-document .flex-1 {
+    flex: 1 1 0% !important;
+  }
+  #printable-pdf-document .border-b {
+    border-bottom: 1px solid #000000 !important;
+  }
+  #printable-pdf-document .border-r {
+    border-right: 1px solid #000000 !important;
+  }
+  #printable-pdf-document .border-t {
+    border-top: 1px solid #000000 !important;
+  }
+  #printable-pdf-document .border-l {
+    border-left: 1px solid #000000 !important;
+  }
+  #printable-pdf-document .border-black {
+    border-color: #000000 !important;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 6mm 8mm 6mm 8mm;
+  }
+}
